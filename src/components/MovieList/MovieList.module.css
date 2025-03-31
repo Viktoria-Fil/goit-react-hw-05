@@ -1,0 +1,6 @@
+.Title {
+  max-width: 160px;
+  overflow-x: scroll;
+  max-height: 24px;
+  text-align: center;
+}
