@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Link, Routes, Route, useParams, useLocation } from "react-router-dom";
 import { fetchMovieDetails } from "../../assets/MovieApi";
 import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
+  const location = useLocation();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -14,21 +14,17 @@ const MovieDetailsPage = () => {
       const data = await fetchMovieDetails(movieId);
       setMovie(data);
     };
-
     fetchDetails();
   }, [movieId]);
 
-  if (!movie) return <p>Завантаження...</p>;
+  if (!movie) return <p>Loading...</p>;
 
   return (
     <div>
-      <button onClick={() => navigate(-1)}>Назад</button>
       <h1>{movie.title}</h1>
       <p>{movie.overview}</p>
-      <Link to="cast">Акторський склад</Link>
-      <Link to="reviews" style={{ marginLeft: "15px" }}>
-        Огляди
-      </Link>
+      <Link to="cast">Cast</Link>
+      <Link to="reviews"> Reviews </Link>
       <Routes>
         <Route path="cast" element={<MovieCast />} />
         <Route path="reviews" element={<MovieReviews />} />

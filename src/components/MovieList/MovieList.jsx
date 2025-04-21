@@ -6,14 +6,15 @@ const MovieList = ({ movies }) => {
   return (
     <ul>
       {movies.map((movie) => (
-        <li key={movie.id}>
+        <li className={css.MovieLi} key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
             {}
             {movie.poster_path ? (
               <img
+                className={css.Img}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title || "Picture unavailable"}
-                style={{ width: "150px", height: "225px" }}
+                style={{ width: "280px", height: "320px" }}
               />
             ) : (
               <p>Picture unavailable</p>

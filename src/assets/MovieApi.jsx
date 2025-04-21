@@ -41,3 +41,4 @@ export const fetchMovieReviews = async (id) => {
   });
   return data;
 };
+export const getImageUrl = (path) => `${IMAGE_BASE_URL}${path}`;

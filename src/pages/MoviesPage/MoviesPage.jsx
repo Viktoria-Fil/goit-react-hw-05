@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { searchMovies } from "../../assets/MovieApi";
 import MovieList from "../../components/MovieList/MovieList";
+import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
@@ -14,8 +15,9 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={css.Form} onSubmit={handleSubmit}>
         <input
+          className={css.Input}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

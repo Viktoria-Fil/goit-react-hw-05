@@ -1,0 +1,14 @@
+.Form {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.Input {
+  width: 320px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1px solid black;
+  background-color: aliceblue;
+  color: black;
+}

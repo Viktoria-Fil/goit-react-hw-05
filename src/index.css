@@ -13,19 +13,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  text-align: center;
+}
+
 a {
   font-weight: 500;
   color: #bc64ff;
   text-decoration: inherit;
+  border-radius: 16px;
 }
 a:hover {
   color: #f2539b;
+  box-shadow: 0 10px 10px 0 rgba(190, 11, 11, 0.2);
 }
 
 body {
-  margin: 0;
+  margin: 36px 60px;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -37,11 +42,13 @@ ol {
   flex-wrap: wrap;
   flex-direction: row;
   gap: 12px;
+  padding: 0;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  justify-content: center;
 }
 
 button {
@@ -51,7 +58,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #623f6df6;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -70,13 +77,14 @@ button:focus-visible {
   }
   a {
     font-weight: 500;
-    color: #64afff;
+    color: #107b14;
     text-decoration: inherit;
   }
   a:hover {
-    color: #5d50ec;
+    color: #33d52e;
+    box-shadow: 0 20px 20px 0 rgba(11, 190, 74, 0.2);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #bdf3c9;
   }
 }
