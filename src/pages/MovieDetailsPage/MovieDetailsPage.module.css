@@ -1,0 +1,46 @@
+.Img {
+  border-radius: 12px;
+  background-color: #010600;
+  padding: 10px;
+}
+
+.Details {
+  display: flex;
+  gap: 40px;
+}
+
+.Overview {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #623f6df6;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: #ffffff;
+  height: fit-content;
+}
+.Overview:hover {
+  border-color: #e564ff;
+}
+.Overview:focus,
+.Overview:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  .Overview {
+    font-weight: 500;
+    color: #107b14;
+    text-decoration: inherit;
+  }
+  .Overview:hover {
+    color: #010600;
+    box-shadow: 0 20px 20px 0 rgba(11, 190, 74, 0.2);
+  }
+  .Overview {
+    background-color: #bdf3c9;
+  }
+}
