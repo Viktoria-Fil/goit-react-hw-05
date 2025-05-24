@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  /* gap: 24px; */
+  flex-wrap: wrap;
+  /* align-content: space-around; */
+  justify-content: space-evenly;
+}
+
+.Img {
+  border-radius: 16px;
+  border: 1px solid black;
+}

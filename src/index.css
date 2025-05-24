@@ -29,7 +29,6 @@ a:hover {
 }
 
 body {
-  margin: 36px 60px;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
@@ -41,6 +40,7 @@ ol {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-evenly;
   gap: 12px;
   padding: 0;
 }
