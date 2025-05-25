@@ -16,11 +16,16 @@ export const fetchTrendingMovies = async () => {
 };
 
 export const searchMovies = async (query) => {
-  const { data } = await axios.get(`${BASE_URL}/search/movie`, {
-    headers,
-    params: { query },
-  });
-  return data;
+  try {
+    const { data } = await axios.get(`${BASE_URL}/search/movie`, {
+      headers,
+      params: { query },
+    });
+    return data;
+  } catch (error) {
+    console.log(`${BASE_URL}/search/movie error ${error}`);
+    return null;
+  }
 };
 
 export const fetchMovieDetails = async (id) => {
@@ -29,16 +34,24 @@ export const fetchMovieDetails = async (id) => {
 };
 
 export const fetchMovieCredits = async (id) => {
-  const { data } = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
-    headers,
-  });
-  return data;
+  try {
+    const { data } = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
+      headers,
+    });
+    return data;
+  } catch (error) {
+    console.log(`error -${error}`);
+  }
 };
 
 export const fetchMovieReviews = async (id) => {
-  const { data } = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
-    headers,
-  });
-  return data;
+  try {
+    const { data } = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
+      headers,
+    });
+    return data;
+  } catch (error) {
+    console.log(`error loading reviews -${error}`);
+  }
 };
 export const getImageUrl = (path) => `${IMAGE_BASE_URL}${path}`;

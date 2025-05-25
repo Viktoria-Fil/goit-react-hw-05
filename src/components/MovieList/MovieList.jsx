@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { fetchTrendingMovies } from "../../assets/MovieApi";
+import { useState, useEffect } from "react";
+
 import css from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
+  const location = useLocation();
   return (
     <ul>
       {movies.map((movie) => (
         <li className={css.MovieLi} key={movie.id}>
-          <Link to={`/movies/${movie.id}`}>
+          <Link to={`/movies/${movie.id}`} state={location}>
             {}
             {movie.poster_path ? (
               <img

@@ -1,17 +1,11 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 import { fetchMovieDetails } from "../../assets/MovieApi";
 import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
-  const [movie, setMovie] = useState(null);
+  const [det, setDet] = useState(null);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
   const { movieId } = useParams();
@@ -24,7 +18,7 @@ export default function MovieDetailsPage() {
         setLoader(true);
         setError(false);
         const data = await fetchMovieDetails(movieId);
-        setMovie(data);
+        setDet(data);
       } catch (error) {
         setError(true);
       } finally {
@@ -32,7 +26,7 @@ export default function MovieDetailsPage() {
       }
     }
     getDataById();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>
@@ -41,17 +35,28 @@ export default function MovieDetailsPage() {
       </Link>
       {loader && <p>Please wait, loading ...</p>}
       {error && <p>Please reload the page </p>}
-      {movie && (
+      {det && (
         <div className={css.section}>
-          <h1>{movie.title}</h1>
+          <h1>
+            {det.title} <span>({det.release_date})</span>
+          </h1>
           <div className={css.Details}>
             <img
               className={css.Img}
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
+              src={`https://image.tmdb.org/t/p/w500${det.poster_path}`}
+              alt={det.title}
               style={{ width: "280px", height: "360px" }}
             />
-            <p className={css.Overview}>{movie.overview}</p>
+            <div className={css.Overview}>
+              <h2>Overview:</h2>
+              <p className={css.Overview}>{det.overview}</p>
+              <h2>Genres:</h2>
+              <p>
+                {det.genres.map((item) => (
+                  <span key={item.id}> {item.name}</span>
+                ))}
+              </p>
+            </div>
           </div>
         </div>
       )}
